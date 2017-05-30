@@ -24,6 +24,14 @@ Clone or download the project
 Install required node modules
 
     npm install
+    
+## Deploy
+
+use `npm` or `node`:
+
+    node index.js
+    OR
+    npm start
 
 ## Mandatory Configurations
 
