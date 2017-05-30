@@ -9,6 +9,8 @@ const notificationSchema = mongoose.Schema({
     date: { type: Date, default: Date.now },
     seen: {type: Boolean, default: false},
     user: {type: String}
-});
+    },
+    { collection: 'notification' }
+);
 
 module.exports = notificationSchema;

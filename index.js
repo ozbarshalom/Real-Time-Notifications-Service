@@ -1,14 +1,17 @@
 const MongoDB = require('./server/mongodb/mongoDB');
-const ExpressServer = require('./server/api/expressServer');
-const WebsocketServer = require('./server/websocket/websocketServer');
 
 MongoDB.on('connected', () => {
+    const WebsocketServer = require('./server/websocket/websocketServer');
+    const ExpressServer = require('./server/api/expressServer');
+
+    WebsocketServer.on('started', () => {
+        ExpressServer.start();
+    });
+
     WebsocketServer.start(ExpressServer.server);
+
 });
 
-WebsocketServer.on('started', () => {
-    ExpressServer.start();
-});
 
 MongoDB.connect();
 
