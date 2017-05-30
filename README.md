@@ -13,7 +13,7 @@ Some reasons you might want to use Real-Time-Notifications:
 
 ## Requirements
 * [NodeJS](https://nodejs.org/en/download/) 6, 7
-* [MongoDB](https://www.mongodb.com/download-center) 3.4
+* [MongoDB Server](https://www.mongodb.com/download-center) 3.4
 
 ## Installation
 
@@ -24,3 +24,31 @@ Clone or download the project
 Install required node modules
 
     npm install
+
+## Mandatory Configurations
+
+Real Time Notifications have many configurations that available for your app
+But, there are few that are mandatory
+
+Configuration file is located in `config/defaults.json`
+
+* `mongodb.url` - MongoDB connection URL
+
+## Notification Schema
+
+The default notification schema is:
+* title
+* body
+* date `auto now`
+* seen `default: false`
+* user
+
+That schema can be changed,
+If you would like to, please change the schema in `server/mongodb/notificationSchema.js` and edit the `create` function in `server/mongodb/notifications.js`
+
+## Authentication
+There are 2 options for managing Real Time Notifications:
+* non-auth - notifications will send or everyone
+* auth - every notification is related and will be send to specific user
+
+Default: `auth`
