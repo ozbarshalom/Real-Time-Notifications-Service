@@ -8,8 +8,8 @@
   "notifications": {
     "auth": true,
     "authModule": {
-      "name": "BasicAuth",
-      "dir": "server/authentication/basic"
+      "name": "TokenAuth",
+      "dir": "server/authentication/token"
     }
   }
 }
