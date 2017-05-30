@@ -7,6 +7,8 @@ const config = require('config');
 
 const connectionURL = config.get('mongodb.url');
 
+mongoose.Promise = global.Promise;
+
 MongoDB = new events.EventEmitter();
 
 MongoDB.connect = () => {

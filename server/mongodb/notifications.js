@@ -10,7 +10,7 @@ const Notifications = () => {};
 Notifications.model = MongoDB.connection.model('Notification', NotificationSchema);
 
 Notifications.getAll = () => {
-    return Notifications.model.find({})
+    return Notifications.model.find()
         .then((results) => {
             return results;
         });
