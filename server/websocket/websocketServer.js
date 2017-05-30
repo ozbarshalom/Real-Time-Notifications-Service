@@ -22,28 +22,13 @@ WebSocketServer.start =  (server) => {
                 ws.username = username;
             });
             WebSocketServer.authModule.on('unauthorized', () => {
-                console.log('not authorized teminating ws');
                 return ws.terminate();
             });
             // use authentication based notifications - notification is for a specific user or for everyone
             WebSocketServer.authModule.login(ws, req);
         }
-
-        else {
-            // user public notifications - everyone who connects to this websocket will receive the notifications
-        }
-        // You might use location.query.access_token to authenticate or share sessions
-        // or req.headers.cookie (see http://stackoverflow.com/a/16395220/151312)
-
-        // ws.on('message', function incoming(message) {
-        //     console.log('received: %s', message);
-        //     ws.send('something ' + message);
-        // });
-        //
-        // ws.send('connected');
     });
     WebSocketServer.emit('started');
 };
-
 
 module.exports = WebSocketServer;

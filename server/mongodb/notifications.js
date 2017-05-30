@@ -16,4 +16,12 @@ Notifications.getAll = () => {
         });
 };
 
+Notifications.create = (title, body, user) => {
+    return new Notification(
+        {title: title,
+        body: body,
+        user: user}
+    ).save();
+};
+
 module.exports.Notifications = Notifications;

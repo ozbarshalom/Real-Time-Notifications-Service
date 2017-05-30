@@ -14,4 +14,13 @@ NotificationsEndPoints.getNotifications = (req, res) => {
         });
 };
 
+NotificationsEndPoints.createNotification = (req, res) => {
+    Notifications.create(req.body.title, req.body.body, req.body.user)
+        .then((notification) => {
+            res.status(201);
+
+            res.json({notification});
+        });
+};
+
 module.exports.NotificationsEndPoints = NotificationsEndPoints;
