@@ -3,7 +3,7 @@
  */
 
 const Notifications = require('../../mongodb/notifications').Notifications;
-
+const WebsocketServer = require('../../../server/websocket/websocketServer');
 
 const NotificationsEndPoints = () => {};
 
@@ -17,8 +17,8 @@ NotificationsEndPoints.getNotifications = (req, res) => {
 NotificationsEndPoints.createNotification = (req, res) => {
     Notifications.create(req.body.title, req.body.body, req.body.user)
         .then((notification) => {
+            WebsocketServer.broadcastNotification(notification, notification.user);
             res.status(201);
-
             res.json({notification});
         });
 };

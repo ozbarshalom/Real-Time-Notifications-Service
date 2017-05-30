@@ -15,8 +15,8 @@ if (WebSocketServer.auth) {
 }
 
 WebSocketServer.start =  (server) => {
-    const wss = new WebSocket.Server({server});
-    wss.on('connection', function connection(ws, req) {
+    WebSocketServer.wss = new WebSocket.Server({server});
+    WebSocketServer.wss.on('connection', function connection(ws, req) {
         if (WebSocketServer.auth) {
             WebSocketServer.authModule.on('authenticated', (username) => {
                 ws.username = username;
@@ -29,6 +29,25 @@ WebSocketServer.start =  (server) => {
         }
     });
     WebSocketServer.emit('started');
+};
+
+WebSocketServer.broadcastNotification = (notificationData, username) => {
+    if (username == undefined) {
+          // broadcast everyone !
+          // Broadcast to all.
+        WebSocketServer.wss.clients.forEach(function each(client) {
+            if (client.readyState === WebSocket.OPEN) {
+                client.send(JSON.stringify(notificationData));
+            }
+        });
+    }
+    else {
+        WebSocketServer.wss.clients.forEach(function each(client) {
+            if (client.readyState === WebSocket.OPEN && client.username === username) {
+                client.send(JSON.stringify(notificationData));
+            }
+        });
+    }
 };
 
 module.exports = WebSocketServer;

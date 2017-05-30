@@ -16,6 +16,13 @@ Notifications.getAll = () => {
         });
 };
 
+Notifications.get = (notificationID) => {
+    return Notifications.model.findById(notificationID)
+        .then((document) => {
+            return document;
+        });
+};
+
 Notifications.create = (title, body, user) => {
     return new Notifications.model(
         {title: title,
