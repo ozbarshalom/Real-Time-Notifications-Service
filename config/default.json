@@ -1,0 +1,15 @@
+{
+  "server": {
+    "port": 8080
+  },
+  "mongodb": {
+    "url": "mongodb://localhost/database01"
+  },
+  "notifications": {
+    "auth": true,
+    "authModule": {
+      "name": "TokenAuth",
+      "dir": "server/authentication/token"
+    }
+  }
+}
