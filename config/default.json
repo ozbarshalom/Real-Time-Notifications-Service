@@ -4,5 +4,12 @@
   },
   "mongodb": {
     "url": "mongodb://localhost/database01"
+  },
+  "notifications": {
+    "auth": true,
+    "authModule": {
+      "name": "BasicAuth",
+      "dir": "server/authentication/basic"
+    }
   }
 }

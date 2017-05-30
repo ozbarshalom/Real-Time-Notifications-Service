@@ -5,6 +5,13 @@
 const url = require('url');
 const WebSocket = require('ws');
 const events = require('events');
+const config = require('config');
+
+const auth = config.get('notifications.auth');
+if (auth) {
+    const authModuleConfig = config.get('notifications.authModule');
+    const authModule = require(__base + authModuleConfig.dir)[authModuleConfig.name]
+}
 
 WebSocketServer = new events.EventEmitter();
 
@@ -20,7 +27,7 @@ WebSocketServer.start =  (server) => {
             ws.send('something ' + message);
         });
 
-        ws.send('something');
+        ws.send('connected');
     });
     WebSocketServer.emit('started');
 };
