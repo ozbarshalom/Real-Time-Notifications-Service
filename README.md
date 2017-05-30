@@ -13,6 +13,6 @@ Some reasons you might want to use Real-Time-Notifications:
 
 ## Requirements
 * [https://nodejs.org/en/download/][NodeJS] 6, 7
-* [https://www.mongodb.com/download-center] 3.4
+* [https://www.mongodb.com/download-center][MongoDB] 3.4
 
 
