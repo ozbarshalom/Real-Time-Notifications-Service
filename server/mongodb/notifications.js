@@ -17,7 +17,7 @@ Notifications.getAll = () => {
 };
 
 Notifications.create = (title, body, user) => {
-    return new Notification(
+    return new Notifications.model(
         {title: title,
         body: body,
         user: user}

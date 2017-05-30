@@ -9,7 +9,8 @@ router.get('/', function(req, res) {
     res.send('Welcome to Notifications service');
 });
 
-router.route('/notifications').get(NotificationsEndPoints.getNotifications);
+router.get('/notifications', NotificationsEndPoints.getNotifications);
+router.post('/notifications', NotificationsEndPoints.createNotification);
 
 
 
