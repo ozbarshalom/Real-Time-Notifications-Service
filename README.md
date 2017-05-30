@@ -15,3 +15,12 @@ Some reasons you might want to use Real-Time-Notifications:
 * [NodeJS](https://nodejs.org/en/download/) 6, 7
 * [MongoDB](https://www.mongodb.com/download-center) 3.4
 
+# Installation
+
+Clone or download the project
+
+    git clone https://github.com/ozbarshalom/Real-Time-Notifications-Service.git
+
+Install required node modules
+
+    npm install
