@@ -69,3 +69,7 @@ There are 2 options for managing Real Time Notifications:
 * auth - every notification is related and will be send to specific user
 
 Default: `auth`
+
+When using `auth` you must specify `authModule` configurations.
+Basic example exists in the configuration file and `server/authentication/token.js`
+<br><b> If you use `auth` you have to change the `authModule` </b>
