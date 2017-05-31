@@ -15,7 +15,7 @@ NotificationsEndPoints.getNotifications = (req, res) => {
 };
 
 NotificationsEndPoints.createNotification = (req, res) => {
-    Notifications.create(req.body.title, req.body.body, req.body.user)
+    Notifications.create(req.body.title, req.body.body, req.body.user, req.body.params)
         .then((notification) => {
             WebsocketServer.broadcastNotification(notification, notification.user);
             res.status(201);

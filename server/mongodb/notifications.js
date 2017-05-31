@@ -23,11 +23,12 @@ Notifications.get = (notificationID) => {
         });
 };
 
-Notifications.create = (title, body, user) => {
+Notifications.create = (title, body, user, params) => {
     return new Notifications.model(
         {title: title,
         body: body,
-        user: user}
+        user: user,
+        params: params}
     ).save();
 };
 

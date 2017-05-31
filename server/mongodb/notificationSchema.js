@@ -8,6 +8,7 @@ const notificationSchema = mongoose.Schema({
     body: String,
     date: { type: Date, default: Date.now },
     seen: {type: Boolean, default: false},
+    params: {type: Object, default: {}},
     user: {type: String}
     },
     { collection: 'notification' }

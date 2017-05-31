@@ -61,6 +61,7 @@ The default notification schema is:
 * date `auto now`
 * seen `default: false`
 * user
+* params <small> - Use to add your own extra json params </small> `default: {}`
 
 That schema can be changed,
 If you would like to, please change the schema in `server/mongodb/notificationSchema.js` and edit the `create` function in `server/mongodb/notifications.js`
