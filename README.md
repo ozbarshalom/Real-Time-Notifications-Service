@@ -17,13 +17,15 @@ Some reasons you might want to use Real-Time-Notifications:
 
 ## Installation
 
-Clone or download the project
+* Clone or download the project
+   
+        git clone https://github.com/ozbarshalom/Real-Time-Notifications-Service.git
 
-    git clone https://github.com/ozbarshalom/Real-Time-Notifications-Service.git
+* Install required node modules
 
-Install required node modules
-
-    npm install
+        npm install
+    
+* Create a new collection named `notification` in your MongoDB database
     
 ## Deploy
 
