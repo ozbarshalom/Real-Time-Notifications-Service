@@ -8,7 +8,7 @@ const events = require('events');
 const config = require('config');
 const bodyParser = require('body-parser');
 
-const port = config.get('server.port');
+const port = process.env.PORT || config.get('server.port');
 
 const expressApp = express();
 expressApp.use(bodyParser.urlencoded({

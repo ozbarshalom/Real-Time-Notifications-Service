@@ -9,7 +9,7 @@
     "auth": true,
     "authModule": {
       "name": "TokenAuth",
-      "dir": "server/authentication/token"
+      "path": "server/authentication/token"
     }
   }
 }

@@ -1,7 +1,6 @@
 ![Real-Time-Notifications-Logo](https://cloud.githubusercontent.com/assets/12782508/26573221/99fd8eb8-4525-11e7-8ffb-6e93c6c80561.jpg)
 
 # Overview
-
 Real Time Notifications is a microservice
 It built to be a part of an application - responsible only for notifications
 
@@ -17,13 +16,15 @@ Some reasons you might want to use Real-Time-Notifications:
 
 ## Installation
 
-Clone or download the project
+* Clone or download the project
+   
+        git clone https://github.com/ozbarshalom/Real-Time-Notifications-Service.git
 
-    git clone https://github.com/ozbarshalom/Real-Time-Notifications-Service.git
+* Install required node modules
 
-Install required node modules
-
-    npm install
+        npm install
+    
+* Create a new collection named `notification` in your MongoDB database
     
 ## Deploy
 
@@ -50,6 +51,7 @@ But, there are few that are mandatory
 Configuration file is located in `config/defaults.json`
 
 * `mongodb.url` - MongoDB connection URL
+* `auth` see [authentication](#authentication)
 
 ## Notification Schema
 
@@ -69,3 +71,27 @@ There are 2 options for managing Real Time Notifications:
 * auth - every notification is related and will be send to specific user
 
 Default: `auth`
+
+When using `auth` you must specify `authModule` configurations.
+Basic example exists in the configuration file and `server/authentication/token.js`
+<br><b> If you use `auth` you have to change the `authModule` </b>
+
+## Configurations
+
+The defaults configurations file is located in `config/default.json`
+
+* `server.port` - listening port (http and websocket) <br>
+* `mongodb.url` - MongoDB connection URL
+* `notifications.auth` - Boolean, if `true` each notification will send to specific user. (In that case, you must set `notifications.authModule` configurations) <br>
+if `false` each notification will be sent for everyone (who connected to the websocket)
+* `notifications.authModule` - Only if `notifications.auth` is set to `true`. <br>
+Set `name` and `path` to your authentication class
+
+### environment variables
+will replace defaults configurations if set
+
+* PORT - `server.port`
+* MONGODB_URL = `mongodb.url`
+* USE_AUTH = `notifications.auth` (boolean)
+* AUTH_MODULE_NAME = `notifications.authModule.name`
+* AUTH_MODULE_PATH = `notifications.authModule.path`

@@ -5,7 +5,7 @@ const events = require('events');
 const mongoose = require('mongoose');
 const config = require('config');
 
-const connectionURL = config.get('mongodb.url');
+const connectionURL = process.env.MONGODB_URL || config.get('mongodb.url');
 
 mongoose.Promise = global.Promise;
 
