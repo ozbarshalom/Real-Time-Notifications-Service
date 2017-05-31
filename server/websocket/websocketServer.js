@@ -11,7 +11,7 @@ WebSocketServer = new events.EventEmitter();
 WebSocketServer.auth = config.get('notifications.auth');
 if (WebSocketServer.auth) {
     const authModuleConfig = config.get('notifications.authModule');
-    WebSocketServer.authModule = require(__base + authModuleConfig.dir)[authModuleConfig.name]
+    WebSocketServer.authModule = require(__base + authModuleConfig.path)[authModuleConfig.name]
 }
 
 WebSocketServer.start =  (server) => {
