@@ -32,6 +32,15 @@ use `npm` or `node`:
     node index.js
     OR
     npm start
+    
+## Basic Usage
+
+When the service is up and running with your configuration there are few basic methods that you will use:
+* Clients - every client that will connect to the websocket <br>
+on `wss://HOST:PORT` is a potential notification receiver
+* Create and send new notification via `POST` to `http://HOST:PORT/notifications` <br>
+with the data as configured in the [Notification Schame](#Notification-Schema). <br>
+when creating new notification, it will send in real time to the client if he already connected to the websocket
 
 ## Mandatory Configurations
 
