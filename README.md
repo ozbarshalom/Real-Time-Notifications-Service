@@ -52,6 +52,7 @@ But, there are few that are mandatory
 Configuration file is located in `config/defaults.json`
 
 * `mongodb.url` - MongoDB connection URL
+* `auth` see [authentication](#authentication)
 
 ## Notification Schema
 
